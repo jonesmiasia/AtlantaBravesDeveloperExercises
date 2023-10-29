@@ -66,7 +66,7 @@ The application relies on the following Python libraries and frameworks:
     ```
     flask run
     ```
-3. Access the application in your web browser at [http://localhost:5000](http://localhost:5000) or another specified URL.
+3. Access the application in your web browser at [http://localhost:5000](http://localhost:5000) or another URL specified in the terminal.
 
 ## Stop the Application
 Press `CTRL + C` in the terminal to stop the application.
