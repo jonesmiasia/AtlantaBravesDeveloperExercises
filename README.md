@@ -3,8 +3,8 @@
 ## Table of Contents
 
 - [Description](#description)
-- [Installation](#installation)
 - [Dependencies](#dependencies)
+- [Installation](#installation)
 - [Run the Application](#run-the-application)
 - [Stop the Application](#stop-the-application)
 
