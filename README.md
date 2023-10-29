@@ -15,17 +15,23 @@ The solution for MousePos.html is located in this project in a file called Mouse
 
 ## Installation
 
-1. Clone the repository to your local machine:
-   ```
-   git clone https://github.com/jonesmiasia/AtlantaBravesDeveloperExercises.git
-   ```
+1. Download the Project:
+   - Please refer to email for link to project OR
 
-2. Create a virtual environment (recommended):
+   - Clone the repository to your local machine:
+       ```
+       git clone https://github.com/jonesmiasia/AtlantaBravesDeveloperExercises.git
+       ```
+2. Navigate to the project directory:
+    ```
+    cd AtlantaBravesDeveloperExercises
+    ```
+3. Create a virtual environment (recommended):
     ```
     python -m venv .venv
     ```
 
-3. Activate the virtual environment:
+4. Activate the virtual environment:
     - On Windows:
 
         ```
@@ -38,7 +44,7 @@ The solution for MousePos.html is located in this project in a file called Mouse
         source .venv/bin/activate
         ```
 
-4. Install the required dependencies:
+5. Install the required dependencies:
 
     ```
     pip install -r requirements.txt
