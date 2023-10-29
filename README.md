@@ -21,7 +21,7 @@ The application relies on the following Python libraries and frameworks:
 - pandas
 - plotly
 - openpyxl
-- 
+
 ## Installation
 
 1. Download the Project:
