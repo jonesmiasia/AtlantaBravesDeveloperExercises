@@ -1,0 +1,72 @@
+header {
+    background-color: #f8f8f8;
+    padding: 10px 0;
+    border-bottom: 2px solid #ccc;
+}
+
+footer {
+    background-color: #f8f8f8;
+    padding: 10px 0;
+    text-align: center;
+    border-top: 2px solid #ccc;
+}
+
+.container {
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.content {
+    margin-bottom: 10px;
+}
+
+.video-text-overlay {
+    color: #fff;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    color: #000;
+    margin-top: 100px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-size: 30px 30px;
+}
+
+.carousel-control-prev {
+    color: #000;
+
+}
+.carousel-control-prev:hover {
+    color: #000;
+}
+
+.carousel-control-next {
+
+}
+
+.carousel-control-next:hover {
+    color: #000;
+}
+
+.card-custom {
+    width: 900px;
+    margin: 0 auto;
+}
+
+.card-overlay-custom {
+    height: 25%;
+    width: 25%;
+    background: #000;
+    opacity: 0.8;
+}
+
+.content-title {
+    text-align: center;
+}

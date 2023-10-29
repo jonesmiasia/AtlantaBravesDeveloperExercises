@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mouse Position Display</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> <!-- added the jQurey library since script tag is being used -->
+</head>
+
+<body>
+
+	<p>The mouse is located at position (<span id='xPos'></span>,<span id='yPos'></span>), and is <span id='dist'></span> pixels from the lower-left corner.</p>
+	<!-- '#' is not needed when referencing a tag in the id attribute -->
+	
+</body>
+</html>
+
+<script>
+
+	$(document).mousemove(function(event){
+		
+		updateXY(event); <!-- passing 'event' parameter -->
+		
+		<!-- moved dist variable to updateXY function since x and y variables are needed in calculation -->
+		
+	});
+
+	function updateXY(event){ <!-- accepting 'event' parameter -->
+		<!-- 'event' is needed to access pageX and pageY properties -->
+		var x = event.pageX;
+		var y = event.pageY;
+		var pageHeight = $(document).height(); <!-- height of webpage needed in dist calculation -->
+		var dist = Math.sqrt(x**2 + (pageHeight - y)**2); <!-- subtracted y from pageHeight to get vertical distance from bottom left corner to cursor -->
+
+		$('#xPos').text(x);
+		$('#yPos').text(y);
+		$('#dist').text(dist.toFixed(2)); <!-- showing up to two decimal places for better readability -->
+	}
+	
+</script>

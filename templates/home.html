@@ -1,0 +1,266 @@
+{% extends "base.html" %}
+{% block title %}
+    Home Page
+{% endblock %}
+{% block content %}
+
+    <!-- Batter Leaderboards-->
+    <div class="container" id="container">
+        <div class="content">
+            <div class="card-content">
+                <div class="card">
+                    <div class="card-header">
+                        <h5> Batter Leaderboards </h5>
+                        <ul class="nav nav-tabs card-header-tabs" id="tableTabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#homeruns">Home Runs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#speed">Exit Speed</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#sweetspots">Sweet Spots</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content">
+
+                            <!-- Home Runs -->
+                            <div class="tab-pane fade show active" id="homeruns">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Batter</th>
+                                        <th>Total Home Runs</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for index, row in homerun_counts.iterrows() %}
+                                        <tr>
+                                            <td>
+                                                <a href="{{ video_link }}{{ row['FIRST_NAME']|lower }}-{{ row['LAST_NAME']|lower }}-{{ row['BATTER_ID'] }}" target="_blank">
+                                                    {{ row['FIRST_NAME'] }} {{ row['LAST_NAME'] }}
+                                                </a>
+                                            </td>
+                                            <td>{{ row['HOME_RUNS'] }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Average Speed -->
+                            <div class="tab-pane fade" id="speed">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Batter</th>
+                                        <th>Average Exit Speed (mph)</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for index, row in avg_exit_speed.iterrows() %}
+                                    <tr>
+                                        <td>
+                                            <a href="{{ video_link }}{{ row['FIRST_NAME']|lower }}-{{ row['LAST_NAME']|lower }}-{{ row['BATTER_ID'] }}" target="_blank">
+                                                {{ row['FIRST_NAME'] }} {{ row['LAST_NAME'] }}
+                                            </a>
+                                        </td>
+                                        <td>{{ row['AVERAGE_EXIT_SPEED'] }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Sweet Spots -->
+                            <div class="tab-pane fade" id="sweetspots">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Batter</th>
+                                        <th>Total Sweet Spot Hits</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for index, row in sweet_spots_counts.iterrows() %}
+                                    <tr>
+                                        <td>
+                                            <a href="{{ video_link }}{{ row['FIRST_NAME']|lower }}-{{ row['LAST_NAME']|lower }}-{{ row['BATTER_ID'] }}" target="_blank">
+                                                {{ row['FIRST_NAME'] }} {{ row['LAST_NAME'] }}
+                                            </a>
+                                        </td>
+                                        <td>{{ row['SWEET_SPOTS'] }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pitcher Leaderboards-->
+        <div class="content">
+            <div class="card-content">
+                <div class="card">
+                    <div class="card-header">
+                        <h5> Pitcher Leaderboards </h5>
+                        <ul class="nav nav-tabs card-header-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#strikeouts">Strikeouts</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#launch_angle_against">Launch Angle Against</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content">
+                            <!-- Strikeouts -->
+                            <div class="tab-pane fade show active" id="strikeouts">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Pitcher</th>
+                                        <th>Total Strikeouts</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for index, row in strikeouts_counts.iterrows() %}
+                                    <tr>
+                                        <td>
+                                            <a href="{{ video_link }}{{ row['FIRST_NAME']|lower }}-{{ row['LAST_NAME']|lower }}-{{ row['PITCHER_ID'] }}" target="_blank">
+                                                {{ row['FIRST_NAME'] }} {{ row['LAST_NAME'] }}
+                                            </a>
+                                        </td>
+                                        <td>{{ row['OUTS'] }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Sweet Spots -->
+                            <div class="tab-pane fade" id="launch_angle_against">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Pitcher</th>
+                                        <th>Average Launch Angle Against</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for index, row in launch_angle_against.iterrows() %}
+                                    <tr>
+                                        <td>
+                                            <a href="{{ video_link }}{{ row['FIRST_NAME']|lower }}-{{ row['LAST_NAME']|lower }}-{{ row['PITCHER_ID'] }}" target="_blank">
+                                                {{ row['FIRST_NAME'] }} {{ row['LAST_NAME'] }}
+                                            </a>
+                                        </td>
+                                        <td>{{ row['LAUNCH_ANGLE'] }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hang Time v Hit Distance -->
+        <div class="content">
+            <div class="card-content">
+                <div class="card">
+                    <div class="card-header">
+                        <h5> Outfielders Performance </h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Assess the performance of outfielders in tracking and catching fly balls.</p>
+                        {{ plot_div_hangtime|safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Highlights -->
+
+        <div class="content">
+            <h1 class="content-title"> Home Run Highlights </h1>
+            <div id="cardCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                <a class="carousel-control-prev" href="#cardCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="card card-custom">
+                            <video controls width="100%">
+                                <source src="{{ longest_homerun['VIDEO_LINK'].iloc[0] }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="card-img-overlay card-overlay-custom">
+                                <h5 class="card-title video-text-overlay">Longest Distance</h5>
+                                <p class="card-text video-text-overlay">
+                                    <a href="{{ video_link }}{{ longest_homerun['FIRST_NAME'].iloc[0]|lower }}-{{ longest_homerun['LAST_NAME'].iloc[0]|lower }}-{{ longest_homerun['BATTER_ID'].iloc[0] }}" target="_blank">
+                                        {{ longest_homerun['FIRST_NAME'].iloc[0] }} {{ longest_homerun['LAST_NAME'].iloc[0] }}
+                                    </a> <br>
+                                    Distance: {{ longest_homerun['HIT_DISTANCE'].iloc[0]|lower }} ft<br>
+                                    {{ longest_homerun['GAME_DATE'].iloc[0]|lower }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card card-custom">
+                            <video controls width="100%">
+                                <source src="{{ fastest_homerun['VIDEO_LINK'].iloc[0] }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="card-img-overlay card-overlay-custom">
+                                <h5 class="card-title video-text-overlay">Fastest Exit Speed</h5>
+                                <p class="card-text video-text-overlay">
+                                    <a href="{{ video_link }}{{ fastest_homerun['FIRST_NAME'].iloc[0]|lower }}-{{ fastest_homerun['LAST_NAME'].iloc[0]|lower }}-{{ fastest_homerun['BATTER_ID'].iloc[0] }}" target="_blank">
+                                        {{ fastest_homerun['FIRST_NAME'].iloc[0] }} {{ fastest_homerun['LAST_NAME'].iloc[0] }}
+                                    </a> <br>
+                                    Exit Speed: {{ fastest_homerun['EXIT_SPEED'].iloc[0]|lower }} mph<br>
+                                    {{ fastest_homerun['GAME_DATE'].iloc[0]|lower }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card card-custom">
+                            <video controls width="100%">
+                                <source src="{{ longest_hangtime_homerun['VIDEO_LINK'].iloc[0] }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="card-img-overlay card-overlay-custom">
+                                <h5 class="card-title video-text-overlay">Longest Hang Time</h5>
+                                <p class="card-text video-text-overlay">
+                                    <a href="{{ video_link }}{{ longest_hangtime_homerun['FIRST_NAME'].iloc[0]|lower }}-{{ longest_hangtime_homerun['LAST_NAME'].iloc[0]|lower }}-{{ longest_hangtime_homerun['BATTER_ID'].iloc[0] }}" target="_blank">
+                                        {{ longest_hangtime_homerun['FIRST_NAME'].iloc[0] }} {{ longest_hangtime_homerun['LAST_NAME'].iloc[0] }}
+                                    </a> <br>
+                                    Hang Time: {{ longest_hangtime_homerun['HANG_TIME'].iloc[0]|lower }} s<br>
+                                    {{ longest_hangtime_homerun['GAME_DATE'].iloc[0]|lower }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <a class="carousel-control-next" href="#cardCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+            </div>
+        </div>
+
+
+    </div>
+
+{% endblock %}
